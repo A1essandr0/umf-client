@@ -1,62 +1,74 @@
-/* .appContainer {
-    display: grid;
-    grid-template-rows: 50px 1fr 250px;
-    width: 99vw;
-    height: 97vh;
+.appContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    margin-bottom: 1%;
 
-}
-
-
-.toolBar {
-    grid-row: 1 / 1;
-    border-top: 1px solid gray;
+    /* background-color: lightskyblue; */
+    /* border-radius: 30px; */
+    /* border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
-    border-right: 1px solid gray;
+    border-right: 1px solid gray; */
 
-    display: grid;
-    grid-template-columns: 1fr 200px;
-}
-.toolBarLeft {
-    grid-column: 1 / 1;
-    border-right: 1px solid gray;
-}
-.toolBarRight {
-    grid-column: 2 / 2;
+    min-width: 1200px;
 }
 
 
+.upperContainer {
+    /* border: 1px solid gray; */
+    height: 50vh;
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
 
-.gamePanel {
-    grid-row: 2 / 2;
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-
-    display: grid;
-    grid-template-columns: 300px 1fr;
-}
-.gamePanelSettings {
-    grid-column: 1 / 1;
-    border-right: 1px solid gray;
-}
-.gamePanelBoard {
-    grid-column: 2 / 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
+    min-height: 400px;
+    min-width: 850px;
 }
 
-.infoPanel {
-    grid-row: 3 / 3;
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
 
-    display: grid;
-    grid-template-columns: 300px 1fr;
+.linksBox {
+    /* background-color: whitesmoke; */
+    border: 1px solid gray;
+    /* border-radius: 20px; */
+
+    height: 20vh;
+    width: 10vw;
+    margin-right: 7.5%;
+
+    min-height: 350px;
+    min-width: 350px;
 }
-.infoPanelConsole {
-    grid-column: 1 / 1;
-    border-right: 1px solid gray;
+
+.qrBox {
+    /* background-color: whitesmoke; */
+    border: 1px solid gray;
+    /* border-radius: 30px; */
+
+    height: 20vh;
+    width: 10vw;
+    margin-left: 7.5%;
+
+    min-height: 350px;
+    min-width: 350px;
 }
-.infoPanelDescriptions {
-    grid-column: 2 / 2;
-} */
+
+
+.recordsTableBox {
+    /* background-color: white; */
+    border: 1px solid gray;
+    /* border-radius: 15px; */
+    margin-top: 3%;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    min-height: 350px;
+    min-width: 850px;
+}
