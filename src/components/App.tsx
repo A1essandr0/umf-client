@@ -1,28 +1,33 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Container from '@mui/material/Container';
+import React, { useState } from 'react';
+
+import UrlGenerator from './UrlGenerator';
+import QrPresenter from './QrPresenter';
+import RecordsTable from './RecordsTable';
 
 export function App() {
+    let [QRImage, setQRImage] = useState("QR");
 
+    function generateQR(text) {
+        console.log(`generating QR for ${text}`);
+        setQRImage("generated QR");
+    }
 
     return (
         <div className='appContainer'>
             <div className='upperContainer'>
 
-                <span className='linksBox'>
+                <div className='linksBox'>
+                    <UrlGenerator generateQR={generateQR} />
+                </div>
 
-                </span>
-
-                <span className='qrBox'>
-
-                </span>
+                <div className='qrBox'>
+                    <QrPresenter QRImage={QRImage}/>
+                </div>
             </div>
 
-            <div className='recordsTableBox'>
-                
+            <div className='lowerContainer'>
+                <RecordsTable />
             </div>
-
         </div>
     )
 }
