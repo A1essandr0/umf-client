@@ -6,10 +6,14 @@ import RecordsTable from './RecordsTable';
 
 export function App() {
     let [QRImage, setQRImage] = useState("QR");
+    let [nRecordReloads, setNRecordReloads] = useState(0)
 
     function generateQR(text) {
-        console.log(`generating QR for ${text}`);
-        setQRImage("generated QR");
+        setQRImage(`generated QR for ${text}`);
+    }
+
+    function triggerRecordsReload() {
+        setNRecordReloads(nRecordReloads+1);
     }
 
     return (
@@ -17,7 +21,10 @@ export function App() {
             <div className='upperContainer'>
 
                 <div className='linksBox'>
-                    <UrlGenerator generateQR={generateQR} />
+                    <UrlGenerator 
+                        generateQR={generateQR} 
+                        triggerRecordsReload={triggerRecordsReload}
+                    />
                 </div>
 
                 <div className='qrBox'>
@@ -26,7 +33,7 @@ export function App() {
             </div>
 
             <div className='lowerContainer'>
-                <RecordsTable />
+                <RecordsTable nRecordReloads={nRecordReloads} />
             </div>
         </div>
     )

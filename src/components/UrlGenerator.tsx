@@ -21,7 +21,6 @@ function UrlGenerator(props) {
         return false;
     }
 
-
     function generateLink() {
         let isLinkCorrect = checkLink(urlText);
         if (!isLinkCorrect) {
@@ -30,15 +29,16 @@ function UrlGenerator(props) {
             return
         }
 
-        let serverResponse = createLinkServerRequest(urlText, aliasText);
-        if (serverResponse !== "ok") {
-            setErrorText(`something went wrong: ${serverResponse}`)
-            return
-        }
-
-        setShortLinkText(urlText);
-        setIsLinkGenerated(true);
-        props.generateQR(urlText);
+        createLinkServerRequest(urlText, aliasText).then(data => {
+            if (data.Link) {
+                setShortLinkText(data.Link)
+                setIsLinkGenerated(true);
+                props.generateQR(data.Link);
+                props.triggerRecordsReload();
+            } else {
+                setErrorText(`something went wrong: ${data}`);
+            }
+        }).catch(err => setErrorText(`something went wrong: ${err}`));
     }
 
 
