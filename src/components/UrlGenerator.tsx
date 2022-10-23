@@ -17,6 +17,8 @@ function UrlGenerator(props) {
 
 
     function checkLink(link) {
+        // TODO check last link for repetition
+
         if (link.includes('http')) return true;
         return false;
     }
@@ -55,7 +57,7 @@ function UrlGenerator(props) {
 
                 <Button variant='contained' size='small'
                     onClick={generateLink}
-                >shorten me</Button>
+                >Shorten me</Button>
                 
                 <Button variant='outlined' size='small'
                     onClick={()=> {

@@ -5,11 +5,11 @@ import QrPresenter from './QrPresenter';
 import RecordsTable from './RecordsTable';
 
 export function App() {
-    let [QRImage, setQRImage] = useState("QR");
-    let [nRecordReloads, setNRecordReloads] = useState(0)
+    let [QRValue, setQRValue] = useState("");
+    let [nRecordReloads, setNRecordReloads] = useState(0);
 
     function generateQR(text) {
-        setQRImage(`generated QR for ${text}`);
+        setQRValue(text);
     }
 
     function triggerRecordsReload() {
@@ -28,7 +28,7 @@ export function App() {
                 </div>
 
                 <div className='qrBox'>
-                    <QrPresenter QRImage={QRImage}/>
+                    <QrPresenter QRValue={QRValue}/>
                 </div>
             </div>
 
