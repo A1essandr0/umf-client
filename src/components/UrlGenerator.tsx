@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 import { createLinkServerRequest } from '../code/requestApi';
+import { client_url } from "../code/config";
 
 
 function UrlGenerator(props) {
@@ -33,9 +34,10 @@ function UrlGenerator(props) {
 
         createLinkServerRequest(urlText, aliasText).then(data => {
             if (data.Link) {
-                setShortLinkText(data.Link)
+                let resultingUrl = `${client_url}/${data.Link}`
+                setShortLinkText(resultingUrl)
                 setIsLinkGenerated(true);
-                props.generateQR(data.Link);
+                props.generateQR(resultingUrl);
                 props.triggerRecordsReload();
             } else {
                 setErrorText(`something went wrong: ${data}`);

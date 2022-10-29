@@ -21,6 +21,8 @@
 .lowerContainer {
     grid-row: 2 / 2;
 
+    border: 1px solid gray;
+
 }
 
 

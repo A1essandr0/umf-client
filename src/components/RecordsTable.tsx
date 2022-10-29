@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { getRecords } from '../code/requestApi';
+import { client_url } from "../code/config";
 
 
 type RecordsResponse = null | {
@@ -30,8 +31,7 @@ export default function RecordsTable(props) {
             {records && records.Records.map(
                 (item, reactKey) => { return (
                     <div key={reactKey}>
-                        <span>{item.Shorturl}</span>
-                        <span>&nbsp;&nbsp;&nbsp;{item.Longurl}</span>
+                        <span>{`${client_url}/${item.Shorturl}`}</span>
                         <span>&nbsp;&nbsp;&nbsp;{item.CreatedAt}</span>
                     </div>
                 )}

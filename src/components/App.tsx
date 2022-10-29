@@ -8,22 +8,14 @@ export function App() {
     let [QRValue, setQRValue] = useState("");
     let [nRecordReloads, setNRecordReloads] = useState(0);
 
-    function generateQR(text) {
-        setQRValue(text);
-    }
-
-    function triggerRecordsReload() {
-        setNRecordReloads(nRecordReloads+1);
-    }
-
     return (
         <div className='appContainer'>
             <div className='upperContainer'>
 
                 <div className='linksBox'>
                     <UrlGenerator 
-                        generateQR={generateQR} 
-                        triggerRecordsReload={triggerRecordsReload}
+                        generateQR={setQRValue} 
+                        triggerRecordsReload={() => setNRecordReloads(n => n+1)}
                     />
                 </div>
 
