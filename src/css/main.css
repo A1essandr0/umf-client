@@ -1,11 +1,10 @@
 .appContainer {
     display: grid;
-    grid-template-rows: 500px 1fr;
+    grid-template-rows: 450px 1fr;
 
-    margin-left: 7.5%;
-    margin-right: 7.5%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 3%;
-
 }
 
 
@@ -21,58 +20,98 @@
 .lowerContainer {
     grid-row: 2 / 2;
 
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 
+}
+
+
+
+
+
+.qrBox {
+    grid-column: 2 / 2;
+    /* border-left: 1px solid gray; */
+    min-width: 600px;
+}
+.qrPresenter {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 15%;
+
+    text-align: center;
+}
+.qrCard {
+    min-height: 265px;
+    min-width: 265px;
+}
+.qrImage {
+    margin-top: 10px;
+}
+.qrText {
+    margin-top: 100px;
 }
 
 
 .linksBox {
     grid-column: 1 / 1;
-
-    border: 1px solid gray;
-
+    /* border: 1px solid gray; */
     min-width: 600px;
-
 }
-
-
-.qrBox {
-    grid-column: 2 / 2;
-
-    border: 1px solid gray;
-
-    min-width: 600px;
-
-}
-
-
 .urlGenerator {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 12%;
+    margin-right: 12%;
     margin-top: 15%;
-
 }
 
-.qrPresenter {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 15%;
-
-    text-align: center;
+.textField {
+    margin-left: 10px;
+    margin-right: 10px;
 }
+.notVisibleTextField {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    min-height: 25px;
+}
+.alignedButton {
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.alignedButtonClipboard {
+    display: inline-flex;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.shortenedLink {
+    background-color: rgb(185, 220, 241);
+}
+
+
+
+
 
 
 
 
 .recordsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5.5%;
+    margin-right: 15%;
+    /* border-top: 1px solid gray; */
 
+}
+.recordRow {
+    margin: 8px;
+}
+.linksHeader {
+    /* margin-left: 40%; */
+    text-align: right;
+    margin-right: 55%;
+    margin-bottom: 30px;
+    font-size: x-large;
 }
 
 
-.shortenedLink {
-    background-color: rgb(185, 220, 241);
-}
-
-.aligningButton {
-    margin-right: 5px;
-}

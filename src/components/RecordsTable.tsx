@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { getRecords } from '../code/requestApi';
 import { client_url } from "../code/config";
 
+import Link from '@mui/material/Link';
+
 
 type RecordsResponse = null | {
     Count: number
@@ -27,12 +29,16 @@ export default function RecordsTable(props) {
     }, [props.nRecordReloads,])
 
     return (
-        <div>
+        <div className='recordsContainer'>
+            <div className='linksHeader'>your last links</div>
+            
             {records && records.Records.map(
                 (item, reactKey) => { return (
-                    <div key={reactKey}>
-                        <span>{`${client_url}/${item.Shorturl}`}</span>
-                        <span>&nbsp;&nbsp;&nbsp;{item.CreatedAt}</span>
+                    <div className='recordRow' key={reactKey}>
+                        <Link href={`${client_url}/${item.Shorturl }`}>{`${client_url}/${item.Shorturl}`}</Link>
+                        <span>&nbsp;&nbsp;&nbsp;{item.CreatedAt.slice(0, 16)}</span>
+                        <br />
+                        <div>{item.Longurl.slice(0,80) + '...'}</div>
                     </div>
                 )}
             )}
