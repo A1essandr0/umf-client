@@ -1,48 +1,42 @@
+body {
+    background: linear-gradient(0.75turn, #3f87a6, #ebf8e1, #f69d3c);
+}
 .appContainer {
     display: grid;
-    grid-template-rows: 450px 1fr;
+    grid-template-rows: 400px 1fr;
 
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 3%;
+    margin-bottom: 5%;
 }
-
 
 .upperContainer {
     grid-row: 1 / 1;
-
     display: grid;
-    grid-template-columns: auto;
-    
-    /* border: 1px solid gray; */
+    grid-template-columns: auto;    
 }
-
 .lowerContainer {
     grid-row: 2 / 2;
-
-    /* border: 1px solid gray; */
-
 }
-
-
-
 
 
 .qrBox {
     grid-column: 2 / 2;
-    /* border-left: 1px solid gray; */
     min-width: 600px;
 }
 .qrPresenter {
     margin-left: 30%;
     margin-right: 30%;
-    margin-top: 15%;
+    margin-top: 10%;
 
     text-align: center;
 }
 .qrCard {
+    border-radius: 15px;
     min-height: 265px;
     min-width: 265px;
+    margin-bottom: 5px;
 }
 .qrImage {
     margin-top: 10px;
@@ -54,16 +48,17 @@
 
 .linksBox {
     grid-column: 1 / 1;
-    /* border: 1px solid gray; */
-    min-width: 600px;
+    min-width: 650px;
 }
 .urlGenerator {
+    
     margin-left: 12%;
     margin-right: 12%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .textField {
+    margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -87,31 +82,29 @@
 .shortenedLink {
     background-color: rgb(185, 220, 241);
 }
-
-
-
-
-
-
+.textFieldWidth {
+    width: 300px;
+}
 
 
 .recordsContainer {
+    background-color: white;
+    border-radius: 15px;
+
     display: flex;
     flex-direction: column;
     margin-left: 5.5%;
     margin-right: 15%;
-    /* border-top: 1px solid gray; */
-
 }
 .recordRow {
     margin: 8px;
 }
+.recordCell {
+    margin-right: 20px;
+}
 .linksHeader {
-    /* margin-left: 40%; */
     text-align: right;
     margin-right: 55%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: x-large;
 }
-
-

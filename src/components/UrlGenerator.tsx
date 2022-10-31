@@ -58,6 +58,7 @@ function UrlGenerator(props) {
 
                 <div className='textField'>
                     <TextField id='enterLinkAliasField' variant='standard' label='alias' value={aliasText}
+                        className='textFieldWidth'
                         onChange={(event) => setAliasText(event.target.value)} 
                     />
 
@@ -83,7 +84,7 @@ function UrlGenerator(props) {
 
                 <div>
                     <div className='textField'>
-                        <TextField id='resultingShortLink' size='small' className='shortenedLink' variant='standard'
+                        <TextField id='resultingShortLink' size='small' className='shortenedLink textFieldWidth' variant='standard'
                             value={shortLinkText} disabled={!isLinkGenerated}
                         />
 
@@ -93,8 +94,7 @@ function UrlGenerator(props) {
                             >Copy to clipboard</Button>
                         </div>
                     </div>
-                </div>
-                
+                </div>           
             </Card>
         </div>
     );

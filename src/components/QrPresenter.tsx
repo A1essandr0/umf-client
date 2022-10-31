@@ -33,7 +33,7 @@ function QrPresenter(props) {
                     <QRCode id='qrCodeId' className='qrImage' value={props.QRValue} level='H'/>}
                 {!props.QRValue && <h1 className='qrText'>your QR here</h1>}
             </Card>
-            {props.QRValue && <Button onClick={onImageDownLoad}>Download</Button>}
+            {props.QRValue && <Button onClick={onImageDownLoad} variant='contained'>Download</Button>}
         </div>
     );
 }

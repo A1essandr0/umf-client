@@ -4,6 +4,7 @@ import { getRecords } from '../code/requestApi';
 import { client_url } from "../code/config";
 
 import Link from '@mui/material/Link';
+import Divider from '@mui/material/Divider'
 
 
 type RecordsResponse = null | {
@@ -11,7 +12,6 @@ type RecordsResponse = null | {
     IP: string
     Records: Record[]
 }
-
 type Record = {
     Longurl: string
     Shorturl: string
@@ -35,10 +35,14 @@ export default function RecordsTable(props) {
             {records && records.Records.map(
                 (item, reactKey) => { return (
                     <div className='recordRow' key={reactKey}>
-                        <Link href={`${client_url}/${item.Shorturl }`}>{`${client_url}/${item.Shorturl}`}</Link>
-                        <span>&nbsp;&nbsp;&nbsp;{item.CreatedAt.slice(0, 16)}</span>
-                        <br />
-                        <div>{item.Longurl.slice(0,80) + '...'}</div>
+                        <span className='recordCell'>
+                            <Link href={`${client_url}/${item.Shorturl }`}>{`${client_url}/${item.Shorturl}`}</Link>
+                        </span>
+                        <span className='recordCell'>
+                            {item.CreatedAt.slice(0, 16)}
+                        </span>
+                        <div className='recordCell'>{item.Longurl}</div>
+                        <Divider />
                     </div>
                 )}
             )}
