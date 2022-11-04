@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { getRecords } from '../code/requestApi';
-import { client_url } from "../code/config";
+import { server_url, client_url, config } from "../code/config";
 
 import Link from '@mui/material/Link';
 import Divider from '@mui/material/Divider'
@@ -23,7 +23,13 @@ export default function RecordsTable(props) {
     let [records, setRecords] = useState<RecordsResponse>(null);
 
     useEffect(() => {
-        getRecords().then(data => {            
+        console.log(`mode: ${config.mode}`)
+        console.log(`using server url: ${server_url}`);
+        console.log(`using client url: ${client_url}`);
+    }, [])
+
+    useEffect(() => {
+        getRecords().then(data => {
             setRecords(data);
         });
     }, [props.nRecordReloads,])
@@ -32,7 +38,7 @@ export default function RecordsTable(props) {
         <div className='recordsContainer'>
             <div className='linksHeader'>your last links</div>
             
-            {records && records.Records.map(
+            {records && records.Records && records.Records.map(
                 (item, reactKey) => { return (
                     <div className='recordRow' key={reactKey}>
                         <span className='recordCell'>
