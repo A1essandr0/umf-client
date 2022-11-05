@@ -3,7 +3,7 @@ export const config = {
     mode: process.env.CLIENT_MODE,
 
     local_server_url: 'http://0.0.0.0:10007',
-    azurevm_server_url: 'https://umfapi.memoricci.fun:10007',
+    azurevm_server_url: 'https://u.memoricci.fun:10007',
 
 }
 

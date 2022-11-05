@@ -33,10 +33,15 @@ function UrlGenerator(props) {
         }
 
         createLinkServerRequest(urlText, aliasText).then(data => {
+            if (data.status && data.status == 409) {
+                setErrorText(`alias ${aliasText} is already in use`);
+                return
+            }
             if (data.Link) {
                 let resultingUrl = `${client_url}/${data.Link}`
                 setShortLinkText(resultingUrl)
                 setIsLinkGenerated(true);
+                setErrorText("");
                 props.generateQR(resultingUrl);
                 props.triggerRecordsReload();
             } else {

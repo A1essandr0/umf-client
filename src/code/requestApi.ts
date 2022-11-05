@@ -12,9 +12,10 @@ export function createLinkServerRequest(url: string, alias: string) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(requestBody)
-    }).then(response => { 
-        if (response.status == 200) return response.json()
-        else throw `something went wrong on the server side, ${response.statusText}`
+    }).then(response => {
+        if (response.status == 200) return response.json();
+        if (response.status == 409) return response;
+        throw `something went wrong on the server side: ${response.statusText}`
     }).catch(err => console.log(err))
 }
 
