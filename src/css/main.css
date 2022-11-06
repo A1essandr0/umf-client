@@ -99,6 +99,11 @@ body {
 }
 .recordRow {
     margin: 8px;
+    max-width: 1200px;
+    
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .recordCell {
     margin-right: 20px;
