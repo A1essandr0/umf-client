@@ -42,7 +42,7 @@ function UrlGenerator(props) {
                 setShortLinkText(resultingUrl)
                 setIsLinkGenerated(true);
                 setErrorText("");
-                props.generateQR(resultingUrl);
+                props.generateQR(data.OriginalUrl);
                 props.triggerRecordsReload();
             } else {
                 setErrorText(`something went wrong: ${data}`);
