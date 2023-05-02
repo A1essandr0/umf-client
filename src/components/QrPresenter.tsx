@@ -2,7 +2,7 @@ import React from 'react';
 
 import QRCode from 'react-qr-code';
 import Card from '@mui/material/Card';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 
 function QrPresenter(props) {
