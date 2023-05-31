@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Card from '@mui/material/Card';
+import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -10,6 +11,7 @@ import { client_url } from "../code/config";
 
 function UrlGenerator(props) {
     let [isLinkGenerated, setIsLinkGenerated] = useState(false);
+    let [shouldGenerateQRForLongLink, setShouldGenerateQRForLongLink] = useState(true);
 
     let [urlText, setUrlText] = useState("");
     let [aliasText, setAliasText] = useState("");
@@ -42,7 +44,9 @@ function UrlGenerator(props) {
                 setShortLinkText(resultingUrl)
                 setIsLinkGenerated(true);
                 setErrorText("");
-                props.generateQR(data.OriginalUrl);
+
+                if (shouldGenerateQRForLongLink) props.generateQR(data.OriginalUrl)
+                else props.generateQR(resultingUrl);
                 props.triggerRecordsReload();
             } else {
                 setErrorText(`something went wrong: ${data}`);
@@ -80,11 +84,20 @@ function UrlGenerator(props) {
                                 setAliasText("");
                                 setShortLinkText("");
                                 setIsLinkGenerated(false);
+                                setShouldGenerateQRForLongLink(true);
                             }}
                         >Clear</Button>
                     </div>
+
+                    <div>
+                        <Checkbox checked={shouldGenerateQRForLongLink}
+                            onChange={(event) => setShouldGenerateQRForLongLink(event.target.checked)}
+                        />
+                        Generate QR for full link
+                    </div>
                 </div>
-                
+
+
                 <div className='notVisibleTextField' id='errorText'>{errorText}</div>
 
                 <div>

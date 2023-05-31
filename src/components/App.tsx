@@ -8,6 +8,7 @@ export function App() {
     let [QRValue, setQRValue] = useState("");
     let [nRecordReloads, setNRecordReloads] = useState(0);
 
+    // TODO correct styles via Mui sx
     return (
         <div className='appContainer'>
             <div className='upperContainer'>

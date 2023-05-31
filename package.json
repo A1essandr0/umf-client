@@ -1,13 +1,13 @@
 {
-  "name": "client-template-react-ts",
-  "version": "0.0.1",
-  "description": "",
+  "name": "url-shortener-client",
+  "version": "0.5.1",
+  "description": "Url shortener client",
   "main": "main.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve --config webpack.config.js",
     "compile": "webpack --config webpack.config.production.js",
-    "build": "webpack --config webpack.config.production.js && bash build_deploy_regruvm.sh"
+    "deploy": "webpack --config webpack.config.production.js && bash build_deploy_regruvm.sh"
   },
   "keywords": [],
   "author": "",
