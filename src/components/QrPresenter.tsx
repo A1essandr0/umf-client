@@ -3,7 +3,7 @@ import React from 'react';
 import QRCode from 'react-qr-code';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
-
+import Box from '@mui/material/Box';
 
 function QrPresenter(props) {
     
@@ -27,14 +27,17 @@ function QrPresenter(props) {
     }
 
     return (
-        <div className='qrPresenter'>
-            <Card variant='outlined' className='qrCard' square>
+        <Box sx={{ marginRight: 15, marginLeft: 30, marginTop: 10, textAlign: "center" }}>
+            <Card variant='outlined' square sx={{ 
+                borderRadius: "15px", minHeight: 265, minWidth: 265,
+                // maxHeight: 300, maxWidth: 300
+            }}>
                 {props.QRValue && 
                     <QRCode id='qrCodeId' className='qrImage' value={props.QRValue} level='H'/>}
                 {!props.QRValue && <h1 className='qrText'>your QR here</h1>}
             </Card>
             {props.QRValue && <Button onClick={onImageDownLoad} variant='contained'>Download</Button>}
-        </div>
+        </Box>
     );
 }
 

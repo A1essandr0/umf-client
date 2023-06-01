@@ -5,6 +5,7 @@ import { server_url, client_url, config } from "../code/config";
 
 import Link from '@mui/material/Link';
 import Divider from '@mui/material/Divider'
+import Box from '@mui/material/Box';
 
 
 type RecordsResponse = null | {
@@ -17,6 +18,8 @@ type Record = {
     Shorturl: string
     CreatedAt: string
 }
+
+const recordCellStyles = { marginRight: "20px"};
 
 
 export default function RecordsTable(props) {
@@ -35,24 +38,32 @@ export default function RecordsTable(props) {
     }, [props.nRecordReloads,])
 
     return (
-        <div className='recordsContainer'>
-            <div className='linksHeader'>your last links</div>
+        <Box sx={{ display: "flex", flexDirection: "column", 
+            backgroundColor: "white", borderRadius: "15px", 
+            marginLeft: 15, marginRight: 15, marginTop: 1
+        }}>
+            <Box sx={{ textAlign: "right", 
+                marginRight: "55%", marginBottom: "20px", 
+                fontSize: "x-large"}}
+            >your last links</Box>
             
             {records && records.Records && records.Records.map(
                 (item, reactKey) => { return (
-                    <div className='recordRow' key={reactKey}>
+                    <Box sx={{ m: "8px", maxWidth: "1200px", 
+                        textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap"
+                    }} key={reactKey}>
                         <span className='recordCell'>
                             <Link href={`${client_url}/${item.Shorturl }`}>{`${client_url}/${item.Shorturl}`}</Link>
                         </span>
                         <span className='recordCell'>
                             {item.CreatedAt.slice(0, 16)}
                         </span>
-                        <div className='recordCell'>{item.Longurl}</div>
+                        <Box>{item.Longurl}</Box>
                         <Divider />
-                    </div>
+                    </Box>
                 )}
             )}
-        </div>
+        </Box>
     )
 }
 

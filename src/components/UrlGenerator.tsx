@@ -4,9 +4,22 @@ import Card from '@mui/material/Card';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 import { createLinkServerRequest } from '../code/requestApi';
 import { client_url } from "../code/config";
+
+const textFieldStyles = {
+    marginTop: "5px",
+    marginLeft: "10px",
+    marginRight: "10px"
+}
+const alignedButtonStyles = {
+    display: "inline-flex",
+    marginTop: "10px",
+    marginLeft: "10px",
+    marginBottom: "10px"
+}
 
 
 function UrlGenerator(props) {
@@ -20,8 +33,6 @@ function UrlGenerator(props) {
 
 
     function checkLink(link) {
-        // TODO check last link for repetition
-
         if (link.includes('http')) return true;
         return false;
     }
@@ -56,28 +67,27 @@ function UrlGenerator(props) {
 
 
     return (
-        <div className='urlGenerator'>
-            <Card elevation={15}>
-                <div className='textField'>
+        <Box sx={{ marginLeft: 15, marginTop: 10, marginRight: 10}}>
+            <Card elevation={15} sx={{ borderRadius: "15px" }}>
+                <Box sx={textFieldStyles}>
                     <TextField id='enterLinkField' variant='standard' label='Url' value={urlText} fullWidth
                         onChange={(event) => setUrlText(event.target.value)}
-                        className="urlTextField"
                     />
-                </div>
+                </Box>
 
-                <div className='textField'>
+                <Box sx={textFieldStyles}>
                     <TextField id='enterLinkAliasField' variant='standard' label='alias' value={aliasText}
-                        className='textFieldWidth'
+                        sx={{ width: "300px" }}
                         onChange={(event) => setAliasText(event.target.value)} 
                     />
 
-                    <div className='alignedButton'>
+                    <Box sx={alignedButtonStyles}>
                         <Button variant='contained' size='small'
                             onClick={generateLink}
                         >Shorten me</Button>
-                    </div>
+                    </Box>
 
-                    <div className='alignedButton'>
+                    <Box sx={alignedButtonStyles}>
                         <Button variant='outlined' size='small'
                             onClick={()=> {
                                 setUrlText("");
@@ -87,34 +97,35 @@ function UrlGenerator(props) {
                                 setShouldGenerateQRForLongLink(true);
                             }}
                         >Clear</Button>
-                    </div>
+                    </Box>
 
-                    <div>
+                    <Box>
                         <Checkbox checked={shouldGenerateQRForLongLink}
                             onChange={(event) => setShouldGenerateQRForLongLink(event.target.checked)}
                         />
                         Generate QR for full link
-                    </div>
-                </div>
+                    </Box>
+                </Box>
 
 
-                <div className='notVisibleTextField' id='errorText'>{errorText}</div>
+                <Box sx={{ ...textFieldStyles, minHeight: "25px", color: "red"}} id='errorText'>{errorText}</Box>
 
-                <div>
-                    <div className='textField'>
-                        <TextField id='resultingShortLink' size='small' className='shortenedLink textFieldWidth' variant='standard'
+                <Box>
+                    <Box sx={textFieldStyles}>
+                        <TextField id='resultingShortLink' size='small'
+                            sx={{ width: "300px", backgroundColor: "rgb(185, 220, 241)" }} variant='standard'
                             value={shortLinkText} disabled={!isLinkGenerated}
                         />
 
-                        <div className='alignedButtonClipboard'>
+                        <Box sx={{ display: "inline-flex", marginBottom: "10px", marginLeft: "30px" }}>
                             <Button variant='outlined' size='small' disabled={!isLinkGenerated}
                                 onClick={() => { navigator.clipboard.writeText(shortLinkText) }}
                             >Copy to clipboard</Button>
-                        </div>
-                    </div>
-                </div>           
+                        </Box>
+                    </Box>
+                </Box>     
             </Card>
-        </div>
+        </Box>
     );
 }
 
